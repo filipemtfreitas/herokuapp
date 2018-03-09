@@ -1,35 +1,25 @@
 function getSessionList(success, error) {
-  var soql = "SELECT Session__r.Id, Session__r.Name FROM Session_Speaker__c";
+  var soql = "SELECT Session__c.Id, Session__c.Name FROM Session_Speaker__c";
   force.query(soql, success, error);
 }
 
-function getSessionDetails(sessionId, success, error) {
-  var soql = "SELECT Session__r.Name, " +
-  "Session__r.Session_Date__c, " +
-  "Speaker__r.Speaker_Name__c, " +
-  "FROM Session_Speaker__c " +
-  "WHERE Session__r.Id = '" + sessionId + "'";
+function getSessionDetails(success, error) {
+  var soql = "SELECT Name, " +
+  "Session_Date__c, " +
+  "Speaker_Name__c, " +
+  "FROM Session_Speaker__c ";
   force.query(soql, success, error);
 }
 
 function showSessionList() {
-    getSessionList(
+    getSessionDetails(
         function (data) {
             var sessions = data.records,
                 html = '';
             for (var i=0; i<sessions.length; i++) {
-                html += '<li class="table-view-cell"><a href="#sessions/'+ sessions[i].Session__r.Id +'">' + sessions[i].Session__r.Name + '</a></li>';
+                html += '<li class="table-view-cell">+ sessions[i].Name + '</a></li>';
             }
-            html =
-                '<div class="page">' +
-                '<header class="bar bar-nav">' +
-                    '<h1 class="title">Sessions</h1>' +
-                '</header>' +
-                '<div class="content">' +
-                    '<ul class="table-view session-list">' + html + '</ul>' +
-                '</div>' +
-                '</div>';
-            slider.slidePage($(html));
+            
         },
         function (error) {
             alert("Error: " + JSON.stringify(error));
