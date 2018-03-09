@@ -19,7 +19,7 @@ function showSessionList() {
             for (var i=0; i<sessions.length; i++) {
                 html += '<li class="table-view-cell">'+ sessions[i].Name + '</a></li>';
             }
-            
+             slider.slidePage($(html));
         },
         function (error) {
             alert("Error: " + JSON.stringify(error));
