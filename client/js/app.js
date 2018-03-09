@@ -19,6 +19,15 @@ function showSessionList() {
             for (var i=0; i<sessions.length; i++) {
                 html += '<li class="table-view-cell">'+ sessions[i].Name + '</a></li>';
             }
+          html =
+                '<div class="page">' +
+                '<header class="bar bar-nav">' +
+                    '<h1 class="title">Sessions</h1>' +
+                '</header>' +
+                '<div class="content">' +
+                    '<ul class="table-view session-list">' + html + '</ul>' +
+                '</div>' +
+                '</div>';
              slider.slidePage($(html));
         },
         function (error) {
