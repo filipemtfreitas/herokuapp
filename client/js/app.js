@@ -15,7 +15,7 @@ function showSessionList() {
     getSessionDetails(
         function (data) {
             var sessions = data.records,
-                html = '';
+                html = 'test';
             for (var i=0; i<sessions.length; i++) {
                 html += '<li class="table-view-cell">'+ sessions[i].Name + '</a></li>';
             }
