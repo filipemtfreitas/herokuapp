@@ -17,7 +17,7 @@ function showSessionList() {
             var sessions = data.records,
                 html = '';
             for (var i=0; i<sessions.length; i++) {
-                html += '<li class="table-view-cell">+ sessions[i].Name + '</a></li>';
+                html += '<li class="table-view-cell">'+ sessions[i].Name + '</a></li>';
             }
             
         },
