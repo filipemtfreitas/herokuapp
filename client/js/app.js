@@ -6,7 +6,7 @@ function getSessionList(success, error) {
 function getSessionDetails(success, error) {
   var soql = "SELECT Name, " +
   "Session_Date__c, " +
-  "Speaker_Name__c, " +
+  "Speaker_Name__c " +
   "FROM Session_Speaker__c ";
   force.query(soql, success, error);
 }
